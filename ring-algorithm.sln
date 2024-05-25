@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "algorithm", "algorithm\algorithm.csproj", "{ACAD248D-5CD6-4244-9905-788BD75CAC7B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "app", "app\app.csproj", "{4C999742-9830-4A15-92CF-D194521C1D7A}"
+	ProjectSection(ProjectDependencies) = postProject
+		{ACAD248D-5CD6-4244-9905-788BD75CAC7B} = {ACAD248D-5CD6-4244-9905-788BD75CAC7B}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ACAD248D-5CD6-4244-9905-788BD75CAC7B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ACAD248D-5CD6-4244-9905-788BD75CAC7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ACAD248D-5CD6-4244-9905-788BD75CAC7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ACAD248D-5CD6-4244-9905-788BD75CAC7B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4C999742-9830-4A15-92CF-D194521C1D7A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C999742-9830-4A15-92CF-D194521C1D7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C999742-9830-4A15-92CF-D194521C1D7A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C999742-9830-4A15-92CF-D194521C1D7A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
