@@ -5,6 +5,7 @@ public class Node
     public int id { get; set; }
     public Node nextNode { get; set; }
     public bool isCoordinator { get; set; }
+    public string message {  get; set; }
     public bool isActive { get; set; }
 
     public Node(int _id, bool _isActive = true)

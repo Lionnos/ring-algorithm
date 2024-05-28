@@ -70,6 +70,7 @@
             conect7 = new Label();
             node7 = new Label();
             send7 = new Button();
+            button1 = new Button();
             panel2.SuspendLayout();
             panel12.SuspendLayout();
             panel10.SuspendLayout();
@@ -548,11 +549,24 @@
             send7.UseVisualStyleBackColor = false;
             send7.Click += sendClick;
             // 
+            // button1
+            // 
+            button1.BackColor = Color.LimeGreen;
+            button1.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button1.Location = new Point(1056, 15);
+            button1.Name = "button1";
+            button1.Size = new Size(153, 38);
+            button1.TabIndex = 11;
+            button1.Text = "Iniciar Proceso";
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += Start;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1221, 757);
+            Controls.Add(button1);
             Controls.Add(panel7);
             Controls.Add(panel18);
             Controls.Add(panel6);
@@ -622,5 +636,6 @@
         private Label conect7;
         private Label node7;
         private Button send7;
+        private Button button1;
     }
 }

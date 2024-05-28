@@ -77,6 +77,11 @@ namespace App
             }
         }
 
+        private void Start(object sender, EventArgs e)
+        {
+            startAlgorithm();
+        }
+
         private void Conect()
         {
             string[] part1 = node2.Text.Split(' ');
@@ -118,21 +123,6 @@ namespace App
                 {
                     //MessageBox.Show($"Node: {nodes[i].id}");
                     //MessageBox.Show($"status: {nodes[i].isActive}");
-                }
-
-                string panelName = $"panel{idNode}";
-                Panel panelCordinator = Controls.Find(panelName, true).FirstOrDefault() as Panel;
-
-                if (panelCordinator != null)
-                {
-                    if (nodes[i].isActive && nodes[i].isCoordinator)
-                    {
-                        panelCordinator.BackColor = Color.DarkOrange;
-                    }
-                    else
-                    {
-                        panelCordinator.BackColor = Color.Silver;
-                    }
                 }
             }
         }
@@ -186,6 +176,78 @@ namespace App
                 }
 
             }
+        }
+
+        public void startAlgorithm()
+        {
+            int highestId = -1;
+            Node coordinatorNode = null;
+
+            foreach (var node in nodes)
+            {
+                if (node.isActive && node.id > highestId)
+                {
+                    highestId = node.id;
+                    coordinatorNode = node;
+
+                }
+                searchColor(node.id);
+                Thread.Sleep(500);
+                MessageBox.Show($"Node {node.id}.");
+            }
+
+            if (coordinatorNode != null)
+            {
+                foreach (var node in nodes)
+                {
+                    node.isCoordinator = (node.id == highestId);
+                    if (node.isCoordinator)
+                    {
+                        node.message = "Coordinator";
+                        colorCordinator(node.id);
+                        //MessageBox.Show($"Node {node.id} is the coordinator.");
+                    }
+                    else
+                    {
+                        node.message = "";
+                    }
+                }
+            }
+        }
+
+
+        private void colorCordinator(int number) 
+        {
+            string panelName;
+            Panel panelCordinator;
+
+            List<int> listId = new List<int>(nodes.Count);
+
+            for (byte i = 0;  i < nodes.Count; i++)
+            {
+                listId.Add(nodes[i].id);
+
+
+                if (nodes[i].isActive == true && nodes[i].isCoordinator == true && listId[i] == number)
+                {
+                    panelName = $"panel{nodes[i].id}";
+                    panelCordinator = Controls.Find(panelName, true).FirstOrDefault() as Panel;
+                    panelCordinator.BackColor = Color.DarkOrange;
+                }
+                else
+                {
+                    panelName = $"panel{nodes[i].id}";
+                    panelCordinator = Controls.Find(panelName, true).FirstOrDefault() as Panel;
+                    panelCordinator.BackColor = Color.Silver;
+                }
+            }
+        }
+
+        private void searchColor(int number)
+        {
+            string panelName = $"panel{number}";
+            Panel panelSearch = Controls.Find(panelName, true).FirstOrDefault() as Panel;
+            panelSearch.BackColor = Color.Green;
         }
     }
 }
